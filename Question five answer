@@ -1,0 +1,13 @@
+def main():
+    Sentence = input('Please enter the sentence that you want the program to work on:- ').upper()
+    sentence_list = Sentence.split()
+    count = counter(sentence_list)
+
+def counter(words):
+    counter =0
+    for words_1 in words:
+        if words_1 == 'THE':
+            counter += 1
+    print('The sentence that you gave me has',counter,'instances of "THE"')
+
+main()
