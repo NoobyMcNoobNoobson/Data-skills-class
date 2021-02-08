@@ -1,0 +1,53 @@
+def main():
+    DNA_sequence_STR = input('Please enter the dna sequence here:- ').upper()
+    DNA_sequence_list  = list(DNA_sequence_STR)
+    count = len(DNA_sequence_STR)
+    pass_to_compliment = compliment(DNA_sequence_list)
+    current = 0
+    number_of_A =0
+    number_of_T =0
+    number_of_C =0
+    number_of_G =0
+    number_of_Invalid =0
+    for base in range(0,count):
+        current_base = (DNA_sequence_list[current])
+        current += 1
+        if current_base == 'A':
+            number_of_A +=1
+        elif current_base == 'T':
+            number_of_T += 1
+        elif current_base == 'C':
+            number_of_C += 1
+        elif current_base == 'G':
+            number_of_G += 1
+        else:
+            number_of_Invalid += 1
+    print('The number of bases A is ', number_of_A)
+    print('The number of bases T is ', number_of_T)
+    print('The number of bases Cis ', number_of_C)
+    print('The number of bases G is ', number_of_G)
+    print('The number of bases that are invalid is ', number_of_Invalid)
+
+def compliment(list):
+    counter = len(list)
+    current = 0
+    compliment_list =[]
+    for current_base in range(0,counter):
+        current_nucleotide = (list[current])
+        current +=1
+        if current_nucleotide == 'A':
+            compliment_list.append('T')
+        elif current_nucleotide == 'T':
+            compliment_list.append('A')
+        elif current_nucleotide == 'C':
+            compliment_list.append('G')
+        elif current_nucleotide == 'G':
+            compliment_list.append('C')
+        else:
+            compliment_list.append('Invalid base')
+    print('This is your compliment list:-',compliment_list)  
+
+keep_going = 'y'
+while keep_going == 'y':
+    main()
+    keep_going = input('Do you want to keep going, if so press Yes.')
