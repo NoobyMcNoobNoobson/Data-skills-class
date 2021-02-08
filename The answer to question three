@@ -1,0 +1,39 @@
+Assigned_list = [['A1', 28], ['A2', 32], ['A3', 1], ['A4', 0],
+['A5', 10], ['A6', 22], ['A7', 30], ['A8', 19],
+['B1', 145], ['B2', 27], ['B3', 36], ['B4', 25],
+['B5', 9], ['B6', 38], ['B7', 21], ['B8', 12],
+['C1', 122], ['C2', 87], ['C3', 36], ['C4', 3],
+['D1', 0], ['D2', 5], ['D3', 55], ['D4', 62],
+['D5', 98], ['D6', 32]]
+print('The number of sites is',len(Assigned_list))
+item_seven = Assigned_list[6]
+last_site = Assigned_list[-1]
+print('The number of salamander on the seventh site is',item_seven[1])
+print('The number of salamanders that were counted at the last site is ',last_site[-1])
+
+current = 0
+total_salamanders = 0
+for site in range(0,len(Assigned_list)):
+    current_site = Assigned_list[current]
+    current += 1
+    current_site_count = current_site[1]
+    total_salamanders += current_site_count
+print('The total number of salamanders is', total_salamanders)
+Average_number_of_salamanders = total_salamanders / (len(Assigned_list))
+print('The average number of salamanders is',Average_number_of_salamanders)
+
+current_site_number_for_c = 0
+c_site_total = 0
+for c_site in range (0,len(Assigned_list)):
+    current_c_site = Assigned_list[current_site_number_for_c]
+    current_site_number_for_c += 1
+    Alphabet = current_c_site[0]
+    Count_for_C = current_c_site[1]
+    letter = Alphabet[0]
+    if letter == 'C':
+        c_site_total += Count_for_C
+print('The total number of salamanders across the C sites is',c_site_total)
+
+
+
+
