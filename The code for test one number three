@@ -1,0 +1,53 @@
+import os # this is the function that I need to open the files
+
+#path = input('Please enter the path here ') # paul hopefully this will make it easier for you and not have you replace all the paths one by one
+
+def main(): # this is the function the main function
+
+    # note for paul, I am bit confused about the top down approach. Mind elaborating on it?
+
+    os.chdir('C:\\Users\\dhaka\\OneDrive\\Desktop\\Semester material\\Data Skills class\\pauls_dna_seqs')
+
+    list_of_abnormals = []
+    list_of_abnormals_sequences = []
+    for my_file in os.listdir(): # this will set the path to open the local file
+        if my_file.endswith('.fasta'): # telling the code to open fasta
+            pass_to_first_line_reader = first_line_reader(my_file) # passing the file 
+            if pass_to_first_line_reader:
+                list_of_abnormals.append(my_file)
+            pass_to_sequence_reader = sequence_reader(my_file)
+            if pass_to_sequence_reader:
+                list_of_abnormals_sequences.append(my_file)
+    
+    if len(list_of_abnormals_sequences) == 0:
+        print('All the files were fine and tidy with proper sequnces.')
+    elif len(list_of_abnormals_sequences) !=0:
+        print('These were the files that had shorter sequences:-',list_of_abnormals_sequences,'\n')
+
+
+    if len(list_of_abnormals) == 0:
+        print('All the files were fine and tidy.')
+    elif len(list_of_abnormals) !=0:
+        print('These were the files that had shortner bar codes :-',list_of_abnormals,'\n')
+
+
+def first_line_reader(this_file): # the function receives the pass_to_first_line_reader = first_line_reader(first_line)
+    file_opener = open(this_file)
+    first_line_read = file_opener.readline().strip('> ').strip('\n')
+    first_line_read = list(first_line_read)
+    if len(first_line_read) < 5: # if the first line has less than five bases send the fasta file to list of abnormals
+        return True
+    return False
+
+def sequence_reader(this_file):
+    file_opener = open(this_file)
+    file_opener.readline()
+    second_line = file_opener.readline().strip('\n')
+    second_line = list(second_line)
+    if len(second_line) < 50:
+        return True
+    return False
+
+
+if __name__ == "__main__":
+    main()
